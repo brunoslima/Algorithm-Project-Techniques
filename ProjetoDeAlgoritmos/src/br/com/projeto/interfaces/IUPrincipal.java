@@ -84,21 +84,17 @@ public class IUPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblHora = new javax.swing.JLabel();
         lblData = new javax.swing.JLabel();
-        btnCodificacaoHuffman = new javax.swing.JButton();
         btnMochilaFracionaria = new javax.swing.JButton();
         btnAssociacaoTarefas = new javax.swing.JButton();
         btnMochilaBooleana = new javax.swing.JButton();
-        btnMultiplicacaoCadeiaMatrizes = new javax.swing.JButton();
         btnSubsequenciaComumLonga = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         menuProblemas = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         itemMenuSair = new javax.swing.JMenuItem();
         MenuAjuda = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -142,16 +138,6 @@ public class IUPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnCodificacaoHuffman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projeto/interfaces/imagens/binary64.png"))); // NOI18N
-        btnCodificacaoHuffman.setText("Codificação Huffman");
-        btnCodificacaoHuffman.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCodificacaoHuffman.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnCodificacaoHuffman.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCodificacaoHuffmanActionPerformed(evt);
-            }
-        });
-
         btnMochilaFracionaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projeto/interfaces/imagens/bag64.png"))); // NOI18N
         btnMochilaFracionaria.setText("Mochila Fracionária");
         btnMochilaFracionaria.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -182,18 +168,8 @@ public class IUPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnMultiplicacaoCadeiaMatrizes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projeto/interfaces/imagens/matriz64.png"))); // NOI18N
-        btnMultiplicacaoCadeiaMatrizes.setText("Multiplicação Cadeia de Matrizes");
-        btnMultiplicacaoCadeiaMatrizes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnMultiplicacaoCadeiaMatrizes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnMultiplicacaoCadeiaMatrizes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMultiplicacaoCadeiaMatrizesActionPerformed(evt);
-            }
-        });
-
         btnSubsequenciaComumLonga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projeto/interfaces/imagens/igual64.png"))); // NOI18N
-        btnSubsequenciaComumLonga.setText("Subsequência Comum Mais Longa");
+        btnSubsequenciaComumLonga.setText("Subsequência Comum Máxima");
         btnSubsequenciaComumLonga.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSubsequenciaComumLonga.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnSubsequenciaComumLonga.addActionListener(new java.awt.event.ActionListener() {
@@ -215,15 +191,6 @@ public class IUPrincipal extends javax.swing.JFrame {
             }
         });
         menuProblemas.add(jMenuItem4);
-
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projeto/interfaces/imagens/binary24.png"))); // NOI18N
-        jMenuItem5.setText("Codificação de Huffman");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        menuProblemas.add(jMenuItem5);
 
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projeto/interfaces/imagens/bag24.png"))); // NOI18N
         jMenuItem6.setText("Mochila Fracionária");
@@ -252,17 +219,9 @@ public class IUPrincipal extends javax.swing.JFrame {
         });
         menuProblemas.add(jMenuItem8);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projeto/interfaces/imagens/matriz24.png"))); // NOI18N
-        jMenuItem2.setText("Multiplicação Cadeias de Matrizes");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        menuProblemas.add(jMenuItem2);
-
         menuInicio.add(menuProblemas);
 
+        itemMenuSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
         itemMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projeto/interfaces/imagens/sair24.png"))); // NOI18N
         itemMenuSair.setText("Sair");
         itemMenuSair.addActionListener(new java.awt.event.ActionListener() {
@@ -276,6 +235,7 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         MenuAjuda.setText("Ajuda");
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projeto/interfaces/imagens/about24.png"))); // NOI18N
         jMenuItem1.setText("Sobre");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -295,38 +255,30 @@ public class IUPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(148, 148, 148)
+                .addGap(117, 117, 117)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAssociacaoTarefas, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                    .addComponent(btnMochilaBooleana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCodificacaoHuffman, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSubsequenciaComumLonga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnMultiplicacaoCadeiaMatrizes)
-                    .addComponent(btnMochilaFracionaria, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(119, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAssociacaoTarefas, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)
+                        .addComponent(btnMochilaFracionaria, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnMochilaBooleana, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSubsequenciaComumLonga, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnMochilaFracionaria, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(btnCodificacaoHuffman, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAssociacaoTarefas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(btnMultiplicacaoCadeiaMatrizes))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSubsequenciaComumLonga, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMochilaBooleana, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                    .addComponent(btnAssociacaoTarefas, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMochilaFracionaria, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnMochilaBooleana, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSubsequenciaComumLonga, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -342,61 +294,11 @@ public class IUPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-
-        IUAssociacaoTarefas cad = new IUAssociacaoTarefas(this, true);
-        cad.setLocationRelativeTo(this);
-        cad.setVisible(true);
-        
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-
-        IUCodificacaoHuffman cad = new IUCodificacaoHuffman(this, true);
-        cad.setLocationRelativeTo(this);
-        cad.setVisible(true);
-        
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-
-        IUMochilaFracionaria cad = new IUMochilaFracionaria(this, true);
-        cad.setLocationRelativeTo(this);
-        cad.setVisible(true);
-        
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-
-        IUMochilaBooleana cad = new IUMochilaBooleana(this, true);
-        cad.setLocationRelativeTo(this);
-        cad.setVisible(true);
-        
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
-        
-        IUSubsequenciaComumMaxima cad = new IUSubsequenciaComumMaxima(this, true);
-        cad.setLocationRelativeTo(this);
-        cad.setVisible(true);
-        
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
     private void itemMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuSairActionPerformed
 
         this.dispose();
         
     }//GEN-LAST:event_itemMenuSairActionPerformed
-
-    private void btnMultiplicacaoCadeiaMatrizesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicacaoCadeiaMatrizesActionPerformed
-        // TODO add your handling code here:
-        
-        IUMultiplicacaoCadeiaMatrizes cad = new IUMultiplicacaoCadeiaMatrizes(this, true);
-        cad.setLocationRelativeTo(this);
-        cad.setVisible(true);
-        
-    }//GEN-LAST:event_btnMultiplicacaoCadeiaMatrizesActionPerformed
 
     private void btnSubsequenciaComumLongaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubsequenciaComumLongaActionPerformed
 
@@ -422,14 +324,6 @@ public class IUPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnMochilaFracionariaActionPerformed
 
-    private void btnCodificacaoHuffmanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCodificacaoHuffmanActionPerformed
-
-        IUCodificacaoHuffman cad = new IUCodificacaoHuffman(this, true);
-        cad.setLocationRelativeTo(this);
-        cad.setVisible(true);
-
-    }//GEN-LAST:event_btnCodificacaoHuffmanActionPerformed
-
     private void btnAssociacaoTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssociacaoTarefasActionPerformed
         
         IUAssociacaoTarefas cad = new IUAssociacaoTarefas(this, true);
@@ -438,13 +332,38 @@ public class IUPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAssociacaoTarefasActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
 
-        IUMultiplicacaoCadeiaMatrizes cad = new IUMultiplicacaoCadeiaMatrizes(this,true);
+        IUSubsequenciaComumMaxima cad = new IUSubsequenciaComumMaxima(this, true);
         cad.setLocationRelativeTo(this);
         cad.setVisible(true);
-        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+
+        IUMochilaBooleana cad = new IUMochilaBooleana(this, true);
+        cad.setLocationRelativeTo(this);
+        cad.setVisible(true);
+
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+
+        IUMochilaFracionaria cad = new IUMochilaFracionaria(this, true);
+        cad.setLocationRelativeTo(this);
+        cad.setVisible(true);
+
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+
+        IUAssociacaoTarefas cad = new IUAssociacaoTarefas(this, true);
+        cad.setLocationRelativeTo(this);
+        cad.setVisible(true);
+
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -484,10 +403,8 @@ public class IUPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MenuAjuda;
     private javax.swing.JButton btnAssociacaoTarefas;
-    private javax.swing.JButton btnCodificacaoHuffman;
     private javax.swing.JButton btnMochilaBooleana;
     private javax.swing.JButton btnMochilaFracionaria;
-    private javax.swing.JButton btnMultiplicacaoCadeiaMatrizes;
     private javax.swing.JButton btnSubsequenciaComumLonga;
     private javax.swing.JMenuItem itemMenuSair;
     private javax.swing.JLabel jLabel1;
@@ -495,9 +412,7 @@ public class IUPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;

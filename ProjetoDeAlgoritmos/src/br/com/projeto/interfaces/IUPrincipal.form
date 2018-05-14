@@ -37,17 +37,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/br/com/projeto/interfaces/imagens/binary24.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Codifica&#xe7;&#xe3;o de Huffman"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
-                  </Events>
-                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -81,21 +70,13 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem8ActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/br/com/projeto/interfaces/imagens/matriz24.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Multiplica&#xe7;&#xe3;o Cadeias de Matrizes"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
-                  </Events>
-                </MenuItem>
               </SubComponents>
             </Menu>
             <MenuItem class="javax.swing.JMenuItem" name="itemMenuSair">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Alt+F4"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/br/com/projeto/interfaces/imagens/sair24.png"/>
                 </Property>
@@ -114,6 +95,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+I"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/br/com/projeto/interfaces/imagens/about24.png"/>
                 </Property>
@@ -155,48 +139,37 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel1" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btnAssociacaoTarefas" pref="196" max="32767" attributes="0"/>
-                  <Component id="btnMochilaBooleana" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="btnAssociacaoTarefas" min="-2" pref="252" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <Component id="btnMochilaFracionaria" min="-2" pref="252" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="btnMochilaBooleana" min="-2" pref="252" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnSubsequenciaComumLonga" min="-2" pref="252" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btnCodificacaoHuffman" max="32767" attributes="0"/>
-                  <Component id="btnSubsequenciaComumLonga" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="btnMultiplicacaoCadeiaMatrizes" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnMochilaFracionaria" min="-2" pref="187" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="119" max="32767" attributes="0"/>
+              <EmptySpace pref="105" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btnMochilaFracionaria" pref="150" max="32767" attributes="0"/>
-                  <Component id="btnCodificacaoHuffman" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnAssociacaoTarefas" alignment="0" max="32767" attributes="0"/>
-              </Group>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Component id="btnMultiplicacaoCadeiaMatrizes" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnSubsequenciaComumLonga" alignment="1" min="-2" pref="155" max="-2" attributes="0"/>
-                          <Component id="btnMochilaBooleana" alignment="1" min="-2" pref="155" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="btnAssociacaoTarefas" min="-2" pref="185" max="-2" attributes="0"/>
+                  <Component id="btnMochilaFracionaria" min="-2" pref="185" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="136" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="btnMochilaBooleana" min="-2" pref="185" max="-2" attributes="0"/>
+                  <Component id="btnSubsequenciaComumLonga" min="-2" pref="185" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="76" max="32767" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -258,19 +231,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnCodificacaoHuffman">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br/com/projeto/interfaces/imagens/binary64.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Codifica&#xe7;&#xe3;o Huffman"/>
-        <Property name="horizontalTextPosition" type="int" value="0"/>
-        <Property name="verticalTextPosition" type="int" value="3"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCodificacaoHuffmanActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="btnMochilaFracionaria">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -310,25 +270,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMochilaBooleanaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnMultiplicacaoCadeiaMatrizes">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br/com/projeto/interfaces/imagens/matriz64.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Multiplica&#xe7;&#xe3;o Cadeia de Matrizes"/>
-        <Property name="horizontalTextPosition" type="int" value="0"/>
-        <Property name="verticalTextPosition" type="int" value="3"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMultiplicacaoCadeiaMatrizesActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="btnSubsequenciaComumLonga">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/br/com/projeto/interfaces/imagens/igual64.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Subsequ&#xea;ncia Comum Mais Longa"/>
+        <Property name="text" type="java.lang.String" value="Subsequ&#xea;ncia Comum M&#xe1;xima"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
