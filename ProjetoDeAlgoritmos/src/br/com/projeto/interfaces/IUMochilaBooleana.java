@@ -233,6 +233,7 @@ public class IUMochilaBooleana extends javax.swing.JDialog {
     private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed
         
         IUAdicionarItemMochila janela = new IUAdicionarItemMochila(null, true);
+        janela.setLocationRelativeTo(this);
         janela.setVisible(true);
 
         if(janela.getValor() != 0 && janela.getPeso() != 0){

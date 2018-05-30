@@ -6,7 +6,14 @@
 package br.com.projeto.interfaces;
 
 import br.com.projeto.problemas.associacaotarefas.BranchAndBound;
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableColumnModel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -16,13 +23,19 @@ import javax.swing.JOptionPane;
 public class IUAssociacaoTarefas extends javax.swing.JDialog {
 
     public int custos[][];
-    
+
     /**
      * Creates new form Principal
      */
     public IUAssociacaoTarefas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        this.setLocationRelativeTo(null);
+        
+        this.scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        this.scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        this.tabelaTarefas.setTableHeader(null);
     }
 
     /**
@@ -39,12 +52,11 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
-        btnAddTarefas = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        textFieldQntTarefas = new javax.swing.JTextField();
+        quantidadeTarefas = new javax.swing.JSpinner();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        scrollPane = new javax.swing.JScrollPane();
+        tabelaTarefas = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         textFieldResultado = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -86,14 +98,14 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Inserir Tarefas"));
 
-        btnAddTarefas.setText("Adicionar Tarefas");
-        btnAddTarefas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddTarefasActionPerformed(evt);
+        jLabel1.setText("Quantidade de tarefas: ");
+
+        quantidadeTarefas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 50, 1));
+        quantidadeTarefas.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                quantidadeTarefasStateChanged(evt);
             }
         });
-
-        jLabel1.setText("Quantidade de tarefas: ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,43 +115,48 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textFieldQntTarefas, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddTarefas)
-                .addGap(30, 30, 30))
+                .addComponent(quantidadeTarefas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddTarefas)
                     .addComponent(jLabel1)
-                    .addComponent(textFieldQntTarefas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(quantidadeTarefas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabela de tarefas"));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        tabelaTarefas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "1", "2", "3", "4"
+            }
+        ));
+        scrollPane.setViewportView(tabelaTarefas);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultados"));
@@ -166,7 +183,7 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textFieldResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
@@ -204,17 +221,17 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
+                .addGap(83, 83, 83)
                 .addComponent(btnProcessar)
                 .addGap(53, 53, 53)
                 .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,71 +240,31 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProcessar)
                     .addComponent(btnLimpar)
                     .addComponent(btnSair))
-                .addGap(18, 18, 18))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        
-        this.dispose();
-        
-    }//GEN-LAST:event_btnSairActionPerformed
 
-    private void btnAddTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTarefasActionPerformed
-        
-        int dimensao = Integer.parseInt(this.textFieldQntTarefas.getText());
-        
-        /*IUAdicionarTarefas cad = new IUAdicionarTarefas(this, true, dimensao);
-        cad.setLocationRelativeTo(this);
-        cad.setVisible(true);*/
-        
-        this.custos = new int[dimensao][dimensao];
-        
-        //Inserindo valores das tarefas
-        for(int i = 0; i < dimensao; i++){
-            
-            for(int j = 0; j < dimensao; j++){
-                
-                this.custos[i][j] = Integer.parseInt(JOptionPane.showInputDialog("Insira o valor da tarefa["+i+"]["+j+"]:"));
-            }
-        }
-        
-        String texto = "";
-        
-        
-        for(int i = 0; i < dimensao; i++){
-            
-            texto += "Pessoa[" + String.valueOf(i) +"]  | ";
-            
-            
-            for(int j = 0; j < dimensao; j++){
-                
-                texto += String.valueOf(this.custos[i][j]) + "     ";
-            }
-            
-            texto += "|\n";
-        }
-        
-        this.jTextArea1.setText(texto);
-        
-        
-    }//GEN-LAST:event_btnAddTarefasActionPerformed
+        this.dispose();
+
+    }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnProcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessarActionPerformed
 
         BranchAndBound associacaoTarefas = new BranchAndBound();
-        
+
         associacaoTarefas.branchAndBound(this.custos);
-        
+
         this.textFieldResultado.setText(String.valueOf(associacaoTarefas.getMelhorCusto()));
         this.textFieldConjuntoSolucao.setText(associacaoTarefas.getConjuntoSolucao());
 
@@ -295,15 +272,75 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
 
-        this.textFieldQntTarefas.setText("");
+        this.quantidadeTarefas.setValue(new Integer("1"));
         this.textFieldResultado.setText("");
         this.textFieldConjuntoSolucao.setText("");
-        this.jTextArea1.setText("");
         this.custos = null;
-        
+
 
     }//GEN-LAST:event_btnLimparActionPerformed
 
+    private void quantidadeTarefasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_quantidadeTarefasStateChanged
+
+        int quantidade = ((Integer) this.quantidadeTarefas.getValue());
+
+        //this.inserirCabecalho(tabelaTarefas, quantidade);
+        this.limparTabela(this.tabelaTarefas);
+        this.inserirLinhas(this.tabelaTarefas, quantidade, quantidade);
+        
+        
+    }//GEN-LAST:event_quantidadeTarefasStateChanged
+
+    private void inserirLinhas(JTable tabela, int quantidadeLinhas, int quantidadeColunas) {
+        
+        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+
+        Integer[] data = new Integer[quantidadeColunas];
+        for (int i = 0; i < quantidadeColunas; i++) {
+            data[i] = 0;
+        }
+
+        for (int i = 0; i < quantidadeLinhas; i++) {
+            modelo.addRow(data);
+        }
+
+    }
+
+    /*private void inserirCabecalho(JTable tabela, int quantidadeColunas) {
+
+        
+       
+        
+        //DefaultTableColumnModel columnModel = (DefaultTableColumnModel) tabela.getColumnModel();
+        
+        DefaultTableColumnModel columnModel = new DefaultTableColumnModel();
+        
+        for (int i = 0; i < quantidadeColunas; i++) {
+            TableColumn coluna = new TableColumn();
+            coluna.setHeaderValue(i);
+            columnModel.addColumn(coluna);
+        }
+        columnModel.
+        tabela.setColumnModel(columnModel);
+        
+        
+    }
+    */
+    
+
+
+    private void limparTabela(JTable tabela) {
+        
+        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+        int numeroLinhas = modelo.getRowCount();
+        
+        while (numeroLinhas > 0) {
+            modelo.removeRow(0);
+            numeroLinhas--;
+        }
+        
+        tabela.setTableHeader(null);
+    }
     /**
      * @param args the command line arguments
      */
@@ -318,16 +355,40 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                
+
+
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IUAssociacaoTarefas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IUAssociacaoTarefas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IUAssociacaoTarefas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IUAssociacaoTarefas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IUAssociacaoTarefas.class
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(IUAssociacaoTarefas.class
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(IUAssociacaoTarefas.class
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(IUAssociacaoTarefas.class
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -340,7 +401,7 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
                 IUAssociacaoTarefas dialog = new IUAssociacaoTarefas(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
+        public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
                     }
                 });
@@ -350,7 +411,6 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddTarefas;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnProcessar;
     private javax.swing.JButton btnSair;
@@ -363,11 +423,11 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JSpinner quantidadeTarefas;
+    private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JTable tabelaTarefas;
     private javax.swing.JTextField textFieldConjuntoSolucao;
-    private javax.swing.JTextField textFieldQntTarefas;
     private javax.swing.JTextField textFieldResultado;
     // End of variables declaration//GEN-END:variables
 }

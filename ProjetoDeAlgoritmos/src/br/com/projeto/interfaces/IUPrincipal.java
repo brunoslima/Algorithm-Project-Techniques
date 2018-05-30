@@ -5,15 +5,10 @@
  */
 package br.com.projeto.interfaces;
 
-import java.awt.Desktop;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -33,6 +28,8 @@ public class IUPrincipal extends javax.swing.JFrame {
      */
     public IUPrincipal() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
         
         //Interface padrão ao sistema.
         try {    

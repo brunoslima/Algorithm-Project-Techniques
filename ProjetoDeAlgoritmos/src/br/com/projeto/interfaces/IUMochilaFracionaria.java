@@ -211,6 +211,7 @@ public class IUMochilaFracionaria extends javax.swing.JDialog {
     private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed
        
         IUAdicionarItemMochila app = new IUAdicionarItemMochila(null, true);
+        app.setLocationRelativeTo(this);
         app.setVisible(true);
         
         int valor = app.getValor();
