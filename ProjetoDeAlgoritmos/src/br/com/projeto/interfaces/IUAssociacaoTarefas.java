@@ -132,13 +132,10 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
 
         tabelaTarefas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"0"}
             },
             new String [] {
-                "1", "2", "3", "4"
+                "1"
             }
         ));
         scrollPane.setViewportView(tabelaTarefas);
@@ -261,8 +258,11 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
 
     private void btnProcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessarActionPerformed
 
+        
         BranchAndBound associacaoTarefas = new BranchAndBound();
 
+        this.custos = this.retornarTabela();
+        
         associacaoTarefas.branchAndBound(this.custos);
 
         this.textFieldResultado.setText(String.valueOf(associacaoTarefas.getMelhorCusto()));
@@ -284,63 +284,60 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
 
         int quantidade = ((Integer) this.quantidadeTarefas.getValue());
 
-        //this.inserirCabecalho(tabelaTarefas, quantidade);
         this.limparTabela(this.tabelaTarefas);
-        this.inserirLinhas(this.tabelaTarefas, quantidade, quantidade);
+        this.inserirLinhas(this.tabelaTarefas, quantidade);
         
         
     }//GEN-LAST:event_quantidadeTarefasStateChanged
 
-    private void inserirLinhas(JTable tabela, int quantidadeLinhas, int quantidadeColunas) {
+    private void inserirLinhas(JTable tabela, int quantidade) {
         
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
 
-        Integer[] data = new Integer[quantidadeColunas];
-        for (int i = 0; i < quantidadeColunas; i++) {
+        Integer[] data = new Integer[quantidade];
+        for (int i = 0; i < quantidade; i++) { //adicionando e inicializando linhas
             data[i] = 0;
         }
 
-        for (int i = 0; i < quantidadeLinhas; i++) {
-            modelo.addRow(data);
+        for (int i = 0; i < quantidade; i++) {
+            modelo.addColumn(i+1,data); //adicionanado e inicializando colunas
         }
-
-    }
-
-    /*private void inserirCabecalho(JTable tabela, int quantidadeColunas) {
-
-        
-       
-        
-        //DefaultTableColumnModel columnModel = (DefaultTableColumnModel) tabela.getColumnModel();
-        
-        DefaultTableColumnModel columnModel = new DefaultTableColumnModel();
-        
-        for (int i = 0; i < quantidadeColunas; i++) {
-            TableColumn coluna = new TableColumn();
-            coluna.setHeaderValue(i);
-            columnModel.addColumn(coluna);
-        }
-        columnModel.
-        tabela.setColumnModel(columnModel);
-        
         
     }
-    */
-    
-
-
+  
     private void limparTabela(JTable tabela) {
         
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
-        int numeroLinhas = modelo.getRowCount();
+        int numeroLinhas, numeroColunas;
+        numeroLinhas = numeroColunas = modelo.getRowCount();
         
-        while (numeroLinhas > 0) {
+        while (numeroLinhas > 0) { //Limpando linhas
             modelo.removeRow(0);
             numeroLinhas--;
         }
+        modelo.setColumnCount(0); //Limpando colunas
         
         tabela.setTableHeader(null);
     }
+    
+    private int[][] retornarTabela(){
+        
+        int quantidadeLinhaColuna = this.tabelaTarefas.getRowCount();
+        int matrizCustos[][] = new int[quantidadeLinhaColuna][quantidadeLinhaColuna];
+
+        for(int i = 0; i < quantidadeLinhaColuna; i++){
+            
+            for (int j = 0; j < quantidadeLinhaColuna; j++) {
+                        
+                matrizCustos[i][j] = Integer.parseInt(this.tabelaTarefas.getValueAt(i, j).toString());
+            }
+         
+        }
+        
+        return(matrizCustos);  
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
