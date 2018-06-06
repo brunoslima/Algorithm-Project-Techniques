@@ -94,7 +94,7 @@ public class Mochila {
         
         String s = "";
         i = 0;
-        while(vetor[i] != 0){
+        while(i < vetor.length && vetor[i] != 0){
             s += "("+ itens[i].getValor() +","+ itens[i].getPeso()+"," + (int)(vetor[i]*100) +") ";
             i++;
             if(i % 4 == 0) s +="\n";
