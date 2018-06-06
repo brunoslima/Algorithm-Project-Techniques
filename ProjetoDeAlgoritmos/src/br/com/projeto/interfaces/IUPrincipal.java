@@ -325,7 +325,13 @@ public class IUPrincipal extends javax.swing.JFrame {
         
         IUAssociacaoTarefas cad = new IUAssociacaoTarefas(this, true);
         cad.setLocationRelativeTo(this);
-        cad.setVisible(true);
+        
+        try{
+            cad.setVisible(true);
+        }
+        catch (Exception e) {
+            System.out.println("Exception da tabela");
+        }
         
     }//GEN-LAST:event_btnAssociacaoTarefasActionPerformed
 

@@ -174,7 +174,7 @@ public class BranchAndBound {
             texto += this.matrizCusto[i][this.melhorSolucao[i]] + ", ";
         }
         
-        texto += "]";
+        texto = texto.substring(0, texto.length() - 2) + "]";
         
         return(texto);
         
