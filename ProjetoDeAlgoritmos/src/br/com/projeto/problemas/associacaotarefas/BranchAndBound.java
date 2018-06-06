@@ -180,5 +180,19 @@ public class BranchAndBound {
         
     }
     
+    public String getConjuntoSolucao2(){
+        
+        String texto = "[";
+        
+        for(int i = 0; i < this.melhorSolucao.length; i++){
+            
+            texto += (this.melhorSolucao[i] + 1) + ", ";
+        }
+        
+        texto = texto.substring(0, texto.length() - 2) + "]";
+        
+        return(texto);
+    }
+    
     
 }
