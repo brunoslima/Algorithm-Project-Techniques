@@ -69,6 +69,8 @@ public class IUMochilaBooleana extends javax.swing.JDialog {
         jButtonRemover = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButtonExecutar = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        textAreaResultado = new javax.swing.JTextArea();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -150,7 +152,7 @@ public class IUMochilaBooleana extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -159,11 +161,11 @@ public class IUMochilaBooleana extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSpinnerCapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(89, 89, 89)
+                                .addGap(106, 106, 106)
                                 .addComponent(jButtonAdicionar)
-                                .addGap(42, 42, 42)
+                                .addGap(62, 62, 62)
                                 .addComponent(jButtonRemover)))
-                        .addGap(0, 83, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -191,21 +193,32 @@ public class IUMochilaBooleana extends javax.swing.JDialog {
             }
         });
 
+        textAreaResultado.setEditable(false);
+        textAreaResultado.setColumns(20);
+        textAreaResultado.setRows(5);
+        jScrollPane3.setViewportView(textAreaResultado);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(180, 180, 180)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonExecutar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(215, 215, 215))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonExecutar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(8, 8, 8))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -225,8 +238,8 @@ public class IUMochilaBooleana extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -292,16 +305,24 @@ public class IUMochilaBooleana extends javax.swing.JDialog {
         int[][] resposta = m.knapsack();
 
         int i = 0;
-        String a = "\nLista de item(s): (valor,peso)\n";
+        String a = "Lista de item(s): (valor,peso)\n    ";
+        int somaValor, somaPeso;
+        somaValor = somaPeso = 0;
+        
         while(resposta[i][0] != 0){
             a += "("+ resposta[i][0] +","+ resposta[i][1] +") ";
+            somaValor += resposta[i][0];
+            somaPeso += resposta[i][1];
             i++;
             if(i % 4 == 0) a += "\n";
         }
         
-        a += "\n\n";
+        a += "\nValor acumulado: " + somaValor + "\nPeso acumulado: " + somaPeso;
         
-        JOptionPane.showMessageDialog(null, a, "Resultado", JOptionPane.INFORMATION_MESSAGE);
+        textAreaResultado.setText(a);
+        
+        //JOptionPane.showMessageDialog(null, a, "Resultado", JOptionPane.INFORMATION_MESSAGE);
+        
     }//GEN-LAST:event_jButtonExecutarActionPerformed
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
@@ -369,8 +390,10 @@ public class IUMochilaBooleana extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinnerCapacidade;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableLista;
+    private javax.swing.JTextArea textAreaResultado;
     // End of variables declaration//GEN-END:variables
 }
