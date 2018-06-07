@@ -35,7 +35,7 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
         
         this.scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        this.tabelaTarefas.setTableHeader(null);
+        //this.tabelaTarefas.setTableHeader(null);
     }
 
     /**
@@ -340,7 +340,7 @@ public class IUAssociacaoTarefas extends javax.swing.JDialog {
         }
         modelo.setColumnCount(0); //Limpando colunas
         
-        tabela.setTableHeader(null);
+        //tabela.setTableHeader(null);
     }
     
     private int[][] retornarTabela(){
