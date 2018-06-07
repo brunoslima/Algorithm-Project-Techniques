@@ -11,6 +11,7 @@ public class Mochila {
     //Atributos
     private int capacidade;
     private Item[] itens;
+    private String valorFinal;
 
     /**
      * Este método é um construtor da classe Mochila
@@ -20,6 +21,7 @@ public class Mochila {
     public Mochila(int capacidade, Item[] itens) {
         this.capacidade = capacidade;
         this.itens = itens;
+        this.valorFinal = "0";
     }
 
     //Getters e Setters
@@ -38,7 +40,22 @@ public class Mochila {
     public void setCapacidade(int capacidade) {
         this.capacidade = capacidade;
     }
-    
+
+     /**
+     * Este método é um getter do valor final da mochila.
+     * @return Retorna o valor final da mochila.
+     */
+    public String getValorFinal() {
+        return valorFinal;
+    }
+
+     /**
+     * Este método é um setter do valor final da mochila.
+     * @param valorFinal inteiro que representa o valor final da mochila.
+     */
+    public void setValorFinal(String valorFinal) {
+        this.valorFinal = valorFinal;
+    }
     
     /**
      * Este metodo realiza a ordenação dos itens com a relação valor/peso.
@@ -94,11 +111,15 @@ public class Mochila {
         
         String s = "";
         i = 0;
+        float valorFinal = 0.0f;
         while(i < vetor.length && vetor[i] != 0){
             s += "("+ itens[i].getValor() +","+ itens[i].getPeso()+"," + (int)(vetor[i]*100) +") ";
+            valorFinal += itens[i].getValor() * vetor[i];
             i++;
             if(i % 4 == 0) s +="\n";
         }
+        
+        this.valorFinal = "" + valorFinal;
         
         return s;
     }

@@ -58,6 +58,8 @@ public class IUMochilaFracionaria extends javax.swing.JDialog {
         jButtonRemover = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButtonExecutar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textAreaResultado = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Mochila Fracionária");
@@ -128,7 +130,7 @@ public class IUMochilaFracionaria extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -137,11 +139,11 @@ public class IUMochilaFracionaria extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSpinnerCapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(89, 89, 89)
+                                .addGap(105, 105, 105)
                                 .addComponent(jButtonAdicionar)
-                                .addGap(40, 40, 40)
+                                .addGap(73, 73, 73)
                                 .addComponent(jButtonRemover)))
-                        .addGap(0, 85, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -169,19 +171,30 @@ public class IUMochilaFracionaria extends javax.swing.JDialog {
             }
         });
 
+        textAreaResultado.setEditable(false);
+        textAreaResultado.setColumns(20);
+        textAreaResultado.setRows(5);
+        jScrollPane1.setViewportView(textAreaResultado);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(184, 184, 184)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonExecutar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(211, 211, 211))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonExecutar)
                 .addContainerGap())
         );
@@ -203,8 +216,8 @@ public class IUMochilaFracionaria extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -273,15 +286,18 @@ public class IUMochilaFracionaria extends javax.swing.JDialog {
         Mochila m = new Mochila(capacidade, itens);
         
         String resposta = m.fractionalKnapsack();
-
+        
         int i = 0;
-        String a = "\nLista de item(s): (valor,peso, %)\n";
+        String a = "Lista de item(s): (valor,peso, %)\n     ";
         
         a += resposta;
         
-        a += "\n\n";
+        a += "\n\nValor final: " + m.getValorFinal();
         
-        JOptionPane.showMessageDialog(null, a, "Resultado", JOptionPane.INFORMATION_MESSAGE);
+        this.textAreaResultado.setText(a);
+        
+        //JOptionPane.showMessageDialog(null, a, "Resultado", JOptionPane.INFORMATION_MESSAGE);
+        
     }//GEN-LAST:event_jButtonExecutarActionPerformed
 
     private void jSpinnerCapacidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jSpinnerCapacidadeKeyReleased
@@ -358,8 +374,10 @@ public class IUMochilaFracionaria extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinnerCapacidade;
     private javax.swing.JTable jTableLista;
+    private javax.swing.JTextArea textAreaResultado;
     // End of variables declaration//GEN-END:variables
 }
